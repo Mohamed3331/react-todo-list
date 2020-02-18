@@ -9,7 +9,7 @@ class TodoInput extends React.Component {
     handleSubmit = () => (
         <p>{this.state.val}</p>
     )
-
+    //fff
     handleChange = (event) => {
         this.setState({val: event.target.value})
     }
