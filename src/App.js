@@ -40,7 +40,7 @@ class App extends React.Component {
   }
 
   clearList = () => {
-    console.log('fdf')
+    console.log('fdff')
   }
 
   render() {
