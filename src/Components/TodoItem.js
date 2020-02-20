@@ -3,7 +3,7 @@ import React from 'react';
 class TodoItem extends React.Component {
     render() {
         return (
-            <div>gf</div>
+            <div>todo item</div>
         )
     }
 }

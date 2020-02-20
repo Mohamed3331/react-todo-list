@@ -1,42 +1,28 @@
 import React from 'react'
-import './todoStyle.css'
 
 class TodoInput extends React.Component {
-    state = {
-        val: ''
-    }
-  
-    handleSubmit = () => (
-        <p>{this.state.val}</p>
-    )
-    //fff
-    handleChange = (event) => {
-        this.setState({val: event.target.value})
-    }
-
   render() {
-    return (
-        <>
-            <div className="container-fluid">
-                <div className="input-group flex-nowrap">
-                    <div className="input-group-prepend">
-                    <span className="input-group-text" id="addon-wrapping">TodoList</span>
-                    </div>
-                    <input type="text" 
-                        className="form-control" 
-                        placeholder="Username" 
-                        aria-label="Username" 
-                        aria-describedby="addon-wrapping"
-                        onChange={this.handleChange}>
-                    </input>
-                </div>
-                <br/>
-                <button onClick={this.handleSubmit} type="button" className="btn btn-success btn-primary btn-lg">Success</button>
-            </div>
+    const {item,handleChange,handleSubmit,editItem} = this.props
 
-            <p>{}</p>
-        </>
-    )
+    return (
+      <div className="card card-body my-3">
+        <form onSubmit={handleSubmit}>
+          <div className="input-group">
+            <div className="input-group-prepend">
+              <div className="input-group-text bg-primary text-white">
+                <i className="fas fa-book"></i>
+              </div>
+            </div>
+            <input type="text" 
+            className="form-control text-capitalize" 
+            placeholder="Add Todo Item.."
+            value={item}
+            onChange={handleChange}/>
+          </div>
+          <button type="submit" className="btn btn-block btn-primary mt-3 text-uppercase">Add item</button>
+        </form>
+      </div>
+    )  
   }
 }
 
