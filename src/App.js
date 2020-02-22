@@ -32,15 +32,23 @@ class App extends React.Component {
   }
 
   handleDelete = (id) => {
-    console.log('fdf')
+    const filteredItems = this.state.items.filter(item => item.id !== id)
+    this.setState({items: filteredItems})
   }
-
+  
   handleEdit = (id) => {
-    console.log('fdf')
+    const filteredItems = this.state.items.filter(item => item.id !== id)
+    const selectedItem = this.state.items.find(item => item.id === id)
+    this.setState({
+      items: filteredItems,
+      item: selectedItem.title,
+      id:id,
+      editItem: true
+    })
   }
 
   clearList = () => {
-    console.log('fdff')
+    this.setState({items: []})
   }
 
   render() {
@@ -59,7 +67,7 @@ class App extends React.Component {
             items={this.state.items}
             handleEdit={this.handleEdit}
             clearList={this.clearList}
-            deleteItem={this.handleDelete}/>
+            handleDelete={this.handleDelete}/>
           </div>
         </div>
       </div>
